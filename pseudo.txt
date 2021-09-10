@@ -1,0 +1,18 @@
+SET ordernumber TO 1;
+DEFINE FUNCTION CafeMenu():
+  PRINT(ordernumber)
+  SET menu TO  {"1": 3.5, "2": 3.5, "3": 3.5, "4": 3.5, "5": 2.25, "6": 0.75, "7": 0.75, "8": 0.75, "9": 0.5, "10":0.5, "11":0.5, "12": 1, "13": 1.75, "14": 1.5, "15": 2.5}
+  SET orders TO []
+  SET cost TO 0;
+  INPUT('Place order here: ')
+  IF order:
+    WHILE order != "":
+      IF order IN menu:
+        APPEND order TO orders
+        INPUT("Amount: ")
+        cost += amount*menu[order]
+        INPUT('Next Item: ')
+  PRINT(cost)
+WHILE True:
+  CafeMenu()
+  SET ordernumber TO ordernumber + 1
